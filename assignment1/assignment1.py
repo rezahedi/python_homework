@@ -99,3 +99,18 @@ def student_scores(type, **kwargs):
         highestScore = value
         name = key
     return name
+
+# Task 8: Titleize, with String and List Operations
+def titleize(string):
+  littleWords = ['a', 'on', 'an', 'the', 'of', 'and', 'is', 'in']
+
+  words = string.split()
+
+  words[0] = words[0].capitalize()
+  words[-1] = words[-1].capitalize()
+
+  for i, word in enumerate(words):
+    if word not in littleWords:
+      words[i] = word.capitalize()
+
+  return " ".join(words)
