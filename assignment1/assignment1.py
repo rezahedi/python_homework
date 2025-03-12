@@ -85,3 +85,17 @@ def repeat(string, count):
     repeatedString += string
 
   return repeatedString
+
+# Task 7: Student Scores, Using **kwargs
+def student_scores(type, **kwargs):
+  if type == "mean":
+    return sum(kwargs.values()) / len(kwargs)
+
+  if type == "best":
+    highestScore = 0
+    name = ""
+    for key, value in kwargs.items():
+      if value > highestScore:
+        highestScore = value
+        name = key
+    return name
