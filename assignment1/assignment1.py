@@ -77,3 +77,11 @@ def grade(*args):
     case value if value >= 60:
       return 'D'
   return 'F' 
+
+# Task 6: Use a For Loop with a Range
+def repeat(string, count):
+  repeatedString = ""
+  for i in range(count):
+    repeatedString += string
+
+  return repeatedString
