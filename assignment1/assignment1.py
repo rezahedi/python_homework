@@ -59,3 +59,21 @@ def data_type_conversion(value, dataType):
     return f"You can't convert {value} into a {dataType}."
 
   return f"Data type `{dataType}` not found!"
+
+# Task 5: Grading System, Using *args
+def grade(*args):
+  try:
+    average = sum(args) / len(args)
+  except TypeError:
+    return "Invalid data was provided."
+  
+  match average:
+    case value if value >= 90:
+      return 'A'
+    case value if value >= 80:
+      return 'B'
+    case value if value >= 70:
+      return 'C'
+    case value if value >= 60:
+      return 'D'
+  return 'F' 
