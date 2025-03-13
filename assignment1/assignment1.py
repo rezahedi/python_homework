@@ -121,3 +121,22 @@ def hangman(secret, guess):
   for i in range( len(secret) ):
     result += secret[i] if secret[i] in guess else '_'
   return result
+
+# Task 10: Pig Latin, Another String Manipulation Exercise
+def pig_latin(string):
+  vowelLetters = 'aeiou'
+
+  words = string.split()
+
+  for w in range( len(words) ):
+    for l in range ( len(words[w]) ):
+      # Handle consonants
+      if words[w][0] == 'u' and words[w][-1] == 'q' or words[w][0] not in vowelLetters:
+        words[w] = words[w][1:] + words[w][0]
+        continue
+      # Handle vowel
+      if words[w][0] in vowelLetters:
+        break
+    words[w] += 'ay'
+  
+  return " ".join(words)
