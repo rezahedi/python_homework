@@ -52,3 +52,13 @@ def employee_find_2(employee_id):
 def sort_by_last_name():
   employees['rows'].sort(key=lambda row : row[column_index('last_name')])
   return employees['rows']
+
+def employee_dict(row):
+  myDict = {}
+  for fieldName in employees['fields']:
+    if fieldName=='employee_id':
+      continue
+    index = column_index(fieldName)
+    myDict[fieldName] = row[index]
+  return myDict
+print(employee_dict(employees['rows'][3]))
