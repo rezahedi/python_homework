@@ -30,3 +30,10 @@ def column_index(fieldName):
   except:
     return -1
 employee_id_column = column_index('employee_id')
+
+def first_name(rowNumber):
+  try:
+    colIndex = column_index('first_name')
+    return employees['rows'][rowNumber][colIndex]
+  except:
+    return ''
