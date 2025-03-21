@@ -83,3 +83,9 @@ def read_minutes():
   minutes2 = read_employees('../csv/minutes2.csv', lambda row:tuple(row))
   return minutes1, minutes2
 minutes1, minutes2 = read_minutes()
+
+def create_minutes_set():
+  m1 = set(minutes1['rows'])
+  m2 = set(minutes2['rows'])
+  return m1.union(m2)
+minutes_set = create_minutes_set()
