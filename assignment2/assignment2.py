@@ -1,4 +1,5 @@
 import csv
+import os
 
 def read_employees():
   employees = {}
@@ -67,3 +68,6 @@ def all_employees_dict():
     index += 1
   return allEmployees
 print(all_employees_dict())
+
+def get_this_value():
+  return os.getenv('THISVALUE')
