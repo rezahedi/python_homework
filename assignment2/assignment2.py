@@ -2,12 +2,12 @@ import csv
 import os
 import custom_module
 
-def read_employees():
+def read_employees(file='../csv/employees.csv', rowType=lambda row:row):
   employees = {}
   myList = []
 
   try:
-    with open('../csv/employees.csv', 'r') as file:
+    with open(file, 'r') as file:
       isKeys = True
       reader = csv.reader(file)
       for row in reader:
@@ -15,7 +15,7 @@ def read_employees():
           employees['fields'] = row
           isKeys = False
           continue
-        myList.append(row)
+        myList.append( rowType(row) )
       employees['rows'] = myList
 
   except Exception as e:
@@ -77,3 +77,9 @@ def set_that_secret(new_secret):
   custom_module.set_secret(new_secret)
 set_that_secret('spiderman!')
 print(custom_module.secret)
+
+def read_minutes():
+  minutes1 = read_employees('../csv/minutes1.csv', lambda row:tuple(row))
+  minutes2 = read_employees('../csv/minutes2.csv', lambda row:tuple(row))
+  return minutes1, minutes2
+minutes1, minutes2 = read_minutes()
