@@ -48,3 +48,7 @@ def employee_find(employee_id ):
 def employee_find_2(employee_id):
   matches = list(filter(lambda row : int(row[employee_id_column]) == employee_id , employees["rows"]))
   return matches
+
+def sort_by_last_name():
+  employees['rows'].sort(key=lambda row : row[column_index('last_name')])
+  return employees['rows']
