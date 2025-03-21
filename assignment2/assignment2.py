@@ -54,11 +54,7 @@ def sort_by_last_name():
   return employees['rows']
 
 def employee_dict(row):
-  myDict = {}
-  for fieldName in employees['fields']:
-    if fieldName=='employee_id':
-      continue
-    index = column_index(fieldName)
-    myDict[fieldName] = row[index]
+  myDict = dict(zip(employees['fields'], row))
+  myDict.pop('employee_id')
   return myDict
 print(employee_dict(employees['rows'][3]))
