@@ -23,3 +23,10 @@ def read_employees():
 
 employees = read_employees()
 print(employees)
+
+def column_index(fieldName):
+  try:
+    return employees['fields'].index(fieldName)
+  except:
+    return -1
+employee_id_column = column_index('employee_id')
