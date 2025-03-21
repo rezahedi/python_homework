@@ -37,3 +37,10 @@ def first_name(rowNumber):
     return employees['rows'][rowNumber][colIndex]
   except:
     return ''
+  
+def employee_find(employee_id ):
+  def employee_match (row):
+    return int(row[employee_id_column]) == employee_id
+
+  matches=list(filter(employee_match, employees["rows"]))
+  return matches
