@@ -58,3 +58,12 @@ def employee_dict(row):
   myDict.pop('employee_id')
   return myDict
 print(employee_dict(employees['rows'][3]))
+
+def all_employees_dict():
+  allEmployees = {}
+  index = 0
+  for row in employees['rows']:
+    allEmployees[ row[column_index('employee_id')] ] = employee_dict(row)
+    index += 1
+  return allEmployees
+print(all_employees_dict())
