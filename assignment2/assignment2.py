@@ -1,6 +1,7 @@
 import csv
 import os
 import custom_module
+from datetime import datetime
 
 def read_employees(file='../csv/employees.csv', rowType=lambda row:row):
   employees = {}
@@ -89,3 +90,11 @@ def create_minutes_set():
   m2 = set(minutes2['rows'])
   return m1.union(m2)
 minutes_set = create_minutes_set()
+
+def create_minutes_list():
+  minutesList = list(map(
+    lambda row:(row[0], datetime.strptime(row[1], "%B %d, %Y")),
+    minutes_set
+  ))
+  return minutesList
+minutes_list = create_minutes_list()
