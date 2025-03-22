@@ -98,3 +98,16 @@ def create_minutes_list():
   ))
   return minutesList
 minutes_list = create_minutes_list()
+
+def write_sorted_list():
+  minutes_list.sort(key=lambda row : row[1])
+  minutesList = list(map(
+    lambda row: (row[0], datetime.strftime(row[1], "%B %d, %Y")),
+    minutes_list
+  ))
+  with open('./minutes.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(minutes1['fields'])
+    writer.writerows(minutesList)
+  return minutesList
+write_sorted_list()
