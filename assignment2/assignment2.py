@@ -18,11 +18,9 @@ def read_employees(file='../csv/employees.csv', rowType=lambda row:row):
           continue
         myList.append( rowType(row) )
       employees['rows'] = myList
-
+    return employees
   except Exception as e:
     print(e)
-
-  return employees
 
 employees = read_employees()
 print(employees)
@@ -64,10 +62,8 @@ print(employee_dict(employees['rows'][3]))
 
 def all_employees_dict():
   allEmployees = {}
-  index = 0
   for row in employees['rows']:
     allEmployees[ row[column_index('employee_id')] ] = employee_dict(row)
-    index += 1
   return allEmployees
 print(all_employees_dict())
 
