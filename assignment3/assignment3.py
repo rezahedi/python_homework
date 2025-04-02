@@ -35,3 +35,19 @@ print(json_employees)
 # %% 3. Combine DataFrames
 more_employees = pd.concat([task2_employees, json_employees], ignore_index=True)
 print(more_employees)
+
+# Task 3: Data Inspection - Using Head, Tail, and Info Methods
+# %% 1. Use the head() method
+first_three = more_employees.head(3)
+print(first_three)
+
+# %% 2. Use the tail() method
+last_two = more_employees.tail(2)
+print(last_two)
+
+# %% 3. Get the shape of a DataFrame
+employee_shape = more_employees.shape
+print(employee_shape)
+
+# %% 4. Use the info() method
+print(more_employees.info())
